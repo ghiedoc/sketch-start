@@ -10,30 +10,55 @@ const routes: Routes = [
   {
     path: "",
     component: MainComponent,
+
     children: [
+
       {
+
         path: "",
+
         component: SketchListComponent,
+
       },
+
       {
+
         path: "my-sketch-list",
+
         component: MySketchListComponent,
+
       },
+
       {
+
         path: "create-sketch",
+
         component: CreateSketchComponent,
+
       },
+
       {
-        path: "sketch",
+
+        path: "sketch/:id",
+
         component: SketchInfoComponent,
+
       },
+
     ],
+
   },
+
 ];
 
+
+
 @NgModule({
+
   imports: [RouterModule.forChild(routes)],
+
   exports: [RouterModule],
+
 })
 
 export class MainRoutingModule { }
