@@ -15,19 +15,19 @@
     ></textarea>
   </div>
 
-  <div class="ss-create-sketchpaint-container">
-    <div class="ss-create-sketchpaint-header">
+  <div class="ss-create-sketch__paint-container">
+    <div class="ss-create-sketch__paint-header">
       <img
         src="https://onecompileman.com/sketch-online/assets/icons/color.png"
       />
 
       <div
         *ngFor="let color of colors"
-        class="ss-create-sketchcolor-block ss-create-sketchcolor-block--{{
+        class="ss-create-sketch__color-block ss-create-sketch__color-block--{{
           color
         }}"
         (click)="activeColor = color"
-        [class.ss-create-sketchcolor-block--active]="activeColor === color"
+        [class.ss-create-sketch__color-block--active]="activeColor === color"
       ></div>
 
       <img
@@ -37,11 +37,11 @@
       />
       <div
         *ngFor="let size of sizes"
-        class="ss-create-sketchpoint-block ss-create-sketchpoint-block--{{
+        class="ss-create-sketch__point-block ss-create-sketch__point-block--{{
           size
         }}"
         (click)="activeSize = size"
-        [class.ss-create-sketchpoint-block--active]="activeSize === size"
+        [class.ss-create-sketch__point-block--active]="activeSize === size"
       >
         •
       </div>

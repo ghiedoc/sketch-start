@@ -1,34 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { SketchService } from "src/app/services/sketch.services";
-import { AuthService } from "src/app/services/auth.service";
 
 @Component({
-  selector: "ss-my-sketch-list",
-  templateUrl: "./my-sketch-list.component.html",
-  styleUrls: ["./my-sketch-list.component.scss"],
+  selector: "ss-sketch-list",
+  templateUrl: "./sketch-list.component.html",
+  styleUrls: ["./sketch-list.component.scss"],
 })
-
-export class MySketchListComponent implements OnInit {
+export class SketchListComponent implements OnInit {
   sketches: any[] = [];
-  user: any;
-  constructor(
-    private sketchService: SketchService,
-    private authService: AuthService
-  ) { }
+
+  constructor(private sketchService: SketchService) { }
 
   ngOnInit() {
-    this.getCurrentUser();
-  }
-  private getSketches() {
-    this.sketchService
-      .getAllByUserId(this.user.uid)
-      .subscribe((sketches) => (this.sketches = sketches));
+    this.getSketches();
   }
 
-  private getCurrentUser() {
-    this.authService.user$.subscribe((user) => {
-      this.user = user;
-      this.getSketches();
-    });
+  private getSketches() {
+    this.sketchService
+      .getAll()
+      .subscribe((sketches) => (this.sketches = sketches));
   }
 }
